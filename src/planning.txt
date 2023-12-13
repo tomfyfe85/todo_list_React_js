@@ -1,0 +1,28 @@
+TODO APP PLANS:
+
+HIGH LEVEL:
+Add/delete todos displayed in the browser
+Mark todos as complete
+
+-) create TodoList Component
+TodoList displays a list of todo OBJECTS in the browser {id, todo}
+User can input todos in a box and submit
+The todo should appear in the browser
+When another todo is added, it should be represented in the browser
+
+-) create Todo Component
+each todo can display a motivational message from an api when created
+each todo has a delete button 
+todos can be marked complete
+incomplete todo's are styled represented
+completed are styled green
+
+Phase 1 
+-create TodoList component
+1) get TodoList to display a list of placeHolder todos on the page
+2) todos need a unique id, 
+3) create input field. useState event.taget.value 
+4) addTodo display new todo on the list on submit with a unique id
+ 
+
+4) create todo compoment, pass id and tod as props
