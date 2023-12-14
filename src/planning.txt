@@ -5,10 +5,10 @@ Add/delete todos displayed in the browser
 Mark todos as complete
 
 -) create TodoList Component
-TodoList displays a list of todo OBJECTS in the browser {id, todo}
-User can input todos in a box and submit
-The todo should appear in the browser
-When another todo is added, it should be represented in the browser
+- TodoList displays a list of todo OBJECTS in the browser {id, todo}
+- User can input todos in a box and submit
+- The todo should appear in the browser
+- When another todo is added, it should be represented in the browser
 
 -) create Todo Component
 each todo can display a motivational message from an api when created
@@ -19,10 +19,21 @@ completed are styled green
 
 Phase 1 
 -create TodoList component
-1) get TodoList to display a list of placeHolder todos on the page
-2) todos need a unique id, 
-3) create input field. useState event.taget.value 
-4) addTodo display new todo on the list on submit with a unique id
- 
+-) get TodoList to display a list of placeHolder todos on the page
+-2) todos need a unique id, 
+-3) create input field. useState event.taget.value 
+-4) addTodo display new todo on the list on submit with a unique id
+ 5) input field should return to empty on submit
 
-4) create todo compoment, pass id and tod as props
+
+
+Phase 2
+4) create todo compoment, pass id and to it as props
+5)Todo list would map todo componets instead of the the todo useState
+6) todo has a delete button which removes todos from list on click
+
+7) todo has a mark complete button - this moves the todo to a 'completed' section (CSS, green for completed and red for not)
+
+8) on creation, each todo could call an API and show the data. Could be a motivational quote API?
+
+
