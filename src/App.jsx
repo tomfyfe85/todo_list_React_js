@@ -1,13 +1,15 @@
 
 import './App.css'
-import TodoList from './components/TodoList'
+import PracticeTodo from './components/PracticeTodo'
+// import TodoList from './components/TodoList'
 
 function App() {
 
 
   return (
     <>
-    <TodoList/>
+      <PracticeTodo/>
+      {/* <TodoList /> */}
     </>
   )
 }
