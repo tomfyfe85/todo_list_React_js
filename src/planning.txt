@@ -23,17 +23,18 @@ Phase 1
 -2) todos need a unique id, 
 -3) create input field. useState event.taget.value 
 -4) addTodo display new todo on the list on submit with a unique id
- 5) input field should return to empty on submit
+-5) input field should return to empty on submit
 
+6) create a delete all button
 
 
 Phase 2
-4) create todo compoment, pass id and to it as props
-5)Todo list would map todo componets instead of the the todo useState
-6) todo has a delete button which removes todos from list on click
+1) create todo compoment, pass id and to it as props
+2)Todo list would map todo componets instead of the the todo useState
+3) todo has a delete button which removes specific todos from list on click
 
-7) todo has a mark complete button - this moves the todo to a 'completed' section (CSS, green for completed and red for not)
+4) todo has a mark complete button - this moves the todo to a 'completed' section (CSS, green for completed and red for not)
 
-8) on creation, each todo could call an API and show the data. Could be a motivational quote API?
+5) on creation, each todo could call an API and show the data. Could be a motivational quote API?
 
 
