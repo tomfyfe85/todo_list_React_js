@@ -6,16 +6,19 @@ const todoArray = [{id:1, todo:"todo 1"}, {id:2, todo:"todo 2"}]
 const [todos, setTodos] = useState(todoArray)
 const [inputValue, setInputValue] = useState("")
   
-  const add = (event, setTodos) => {
+  const add = (event) => {
     event.preventDefault()
 
-    setTodos([...todos, {
-      id: 3, todo: inputValue
-    }])
-    // console.log(todos)
+ const todo = [...todos, {
+    id: 3, todo: inputValue
+  }]
+    setTodos(todo)
 
   }
+
+
   console.log(todos)
+
 
   const handleChange = (event) => {
     setInputValue(event.target.value)
@@ -23,7 +26,7 @@ const [inputValue, setInputValue] = useState("")
   
   return (<>
     <h1>Practice Todo</h1>
-    <form onSubmit={() => add(setTodos)}>
+    <form onSubmit={add}>
       <label htmlFor="addTodo">
         Add a TodoList
         <input type='todo' name='submit' value={inputValue} onChange={handleChange}/>
