@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 
 const TodoList = () => {
-  const todosArray = [
-    { id: 1, todo: "todo 1" },
-    { id: 2, todo: "todo 2" },
-  ];
-  const [todos, setTodos] = useState(todosArray);
+
+  const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
-  const [idCounter, setIdCounter] = useState(3);
+  const [idCounter, setIdCounter] = useState(0);
 
 
   const addTodo = (event) => {
     event.preventDefault();
-    setTodos([...todos, { id: idCounter, todo: newTodo }]);
     setIdCounter(idCounter + 1);
+    setTodos([...todos, { id: idCounter, todo: newTodo }]);
     setNewTodo("");
   };
+
+  const deleteAll = () => {
+    setTodos([])
+  }
+    
 
   const handleChange = (event) => {
     setNewTodo(event.target.value);
@@ -31,16 +33,20 @@ const TodoList = () => {
         <label htmlFor="addTodo">
           Add a todo:
           <input
-            type="todo"
+            id="input"
+            type="text"
             name="todo"
             value={newTodo}
             onChange={handleChange}
           />
         </label>
-        <button type="submit" name="submit">
+        <button type="submit" name="submit" id="submit">
           SUBMIT
         </button>
       </form>
+      <button onClick={deleteAll} id='delete'>
+          DELETE ALL
+        </button>
       {todos.map((todo) => (
         <div key={todo.id}>{todo.todo}</div>
       ))}
