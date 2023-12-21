@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-
+import React, { useState } from "react"
+import Todo from "./Todo";
 const TodoList = () => {
 
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([{id:1 , todo: 'todo'}]);
   const [newTodo, setNewTodo] = useState("");
   const [idCounter, setIdCounter] = useState(0);
 
@@ -17,7 +17,7 @@ const TodoList = () => {
   const deleteAll = () => {
     setTodos([])
   }
-    
+    console.log(newTodo)
 
   const handleChange = (event) => {
     setNewTodo(event.target.value);
@@ -48,7 +48,9 @@ const TodoList = () => {
           DELETE ALL
         </button>
       {todos.map((todo) => (
-        <div key={todo.id}>{todo.todo}</div>
+        <div key={todo.id}>
+          <Todo id={todo.id} todo={todo.todo}/>
+        </div>
       ))}
     </div>
   );
