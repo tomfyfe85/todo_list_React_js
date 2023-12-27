@@ -25,16 +25,17 @@ Phase 1
 -4) addTodo display new todo on the list on submit with a unique id
 -5) input field should return to empty on submit
 
-6) create a delete all button
+-6) create a delete all button
 
 
 Phase 2
-1) create todo compoment, pass id and to it as props
-2)Todo list would map todo componets instead of the the todo useState
-3) todo has a delete button which removes specific todos from list on click
-
-4) todo has a mark complete button - this moves the todo to a 'completed' section (CSS, green for completed and red for not)
-
-5) on creation, each todo could call an API and show the data. Could be a motivational quote API?
+-) create todo compoment, pass id and to it as props
+-)Todo list would map todo componets instead of the the todo useState
+-) todo has a delete button which removes specific todos from list on click
+) user can't submit a blank form
+<!-- Use conditional rendering. Only submit for is  -->
+) todo has a mark complete button - this moves the todo to a 'completed' section (CSS, green for completed and red for not)
+) on creation, each todo could call an API and show the data. Could be a motivational quote API?
+) delete all completed/uncompleted
 
 

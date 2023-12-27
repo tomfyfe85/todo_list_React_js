@@ -2,15 +2,13 @@ const Todo = ({ id, todo, todos, setTodos }) => {
   const deleteTodo = (id, todos, setTodos) => {
     // console.log('Delete todo')
     let deleted = [];
-    todos.forEach((todo) => {
-      if (todo.id != id) {
-        deleted.push(todo);
+    todos.forEach((task) => {
+      if (task.id != id) {
+        deleted.push(task);
       }
       setTodos(deleted);
-
     });
   };
-
 
   return (
     <>

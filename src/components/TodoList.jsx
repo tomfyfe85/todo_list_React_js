@@ -10,12 +10,11 @@ const TodoList = () => {
     setIdCounter(idCounter + 1);
     setTodos([...todos, { id: idCounter, todo: newTodo }]);
     setNewTodo("");
-    console.log(todos)
-};
+  };
+  
   const deleteAll = () => {
     setTodos([]);
   };
-  console.log(todos)
 
   const handleChange = (event) => {
     setNewTodo(event.target.value);
@@ -44,7 +43,12 @@ const TodoList = () => {
       </button>
       {todos.map((todo) => (
         <div key={todo.id}>
-          <Todo id={todo.id} todo={todo.todo} todos={todos} setTodos={setTodos} />
+          <Todo
+            id={todo.id}
+            todo={todo.todo}
+            todos={todos}
+            setTodos={setTodos}
+          />
         </div>
       ))}
     </div>
