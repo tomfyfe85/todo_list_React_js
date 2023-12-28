@@ -3,14 +3,14 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  color: rgba(221, 255, 0, 0.633);
+  color: rgba(19, 77, 84, 0.633);
 }
 
 #input {
   color: rgba(223, 19, 39, 0.902);
 }
 #submit {
-  color: rgba(246, 255, 0, 0.754);
+  color: rgba(0, 13, 255, 0.754);
 }
 
 #delete {

@@ -7,11 +7,14 @@ const TodoList = () => {
 
   const addTodo = (event) => {
     event.preventDefault();
+    if (newTodo === "") {
+      return 
+    }
     setIdCounter(idCounter + 1);
     setTodos([...todos, { id: idCounter, todo: newTodo }]);
     setNewTodo("");
   };
-  
+   
   const deleteAll = () => {
     setTodos([]);
   };
@@ -25,7 +28,7 @@ const TodoList = () => {
       <h1>Todo List</h1>
       <form onSubmit={addTodo}>
         <label htmlFor="addTodo">
-          Add a todo:
+          Add a task:
           <input
             id="input"
             type="text"

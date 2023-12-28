@@ -32,10 +32,10 @@ Phase 2
 -) create todo compoment, pass id and to it as props
 -)Todo list would map todo componets instead of the the todo useState
 -) todo has a delete button which removes specific todos from list on click
-) user can't submit a blank form
-<!-- Use conditional rendering. Only submit for is  -->
+-) user can't submit a blank form
+
 ) todo has a mark complete button - this moves the todo to a 'completed' section (CSS, green for completed and red for not)
-) on creation, each todo could call an API and show the data. Could be a motivational quote API?
+) on creation, each todo could call an API and show the data. Could be a motivational quote API? - https://api.quotable.io/random
 ) delete all completed/uncompleted
 
 
