@@ -14,14 +14,12 @@ const Todo = ({ id, todo, todos, setTodos }) => {
 
   return (
     <>
-      <div>
+      <br/>
         Task:
         <br /> {todo}
-      </div>
-      <div>
         <MotivationQuote />
-      </div>
       <button onClick={() => deleteTodo(id, todos, setTodos)}>Delete</button>
+      <hr/>
     </>
   );
 };

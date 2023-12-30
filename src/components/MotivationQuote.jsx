@@ -16,8 +16,7 @@ const MotivationQuote = () => {
 
   return (
     <>
-      <p>Motivational Quote:<br/> {quote.content}</p>
-      <p></p>
+      <h6>Motivational Quote:<br/> {quote.content}</h6>
     </>
   );
 };
