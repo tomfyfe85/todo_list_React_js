@@ -1,3 +1,5 @@
+import MotivationQuote from "./MotivationQuote";
+
 const Todo = ({ id, todo, todos, setTodos }) => {
   const deleteTodo = (id, todos, setTodos) => {
     // console.log('Delete todo')
@@ -13,6 +15,9 @@ const Todo = ({ id, todo, todos, setTodos }) => {
   return (
     <>
       <div>{todo}</div>
+      <div>
+        <MotivationQuote/>
+      </div>
       <button onClick={() => deleteTodo(id, todos, setTodos)}>Delete</button>
     </>
   );

@@ -8,13 +8,13 @@ const TodoList = () => {
   const addTodo = (event) => {
     event.preventDefault();
     if (newTodo === "") {
-      return 
+      return;
     }
     setIdCounter(idCounter + 1);
     setTodos([...todos, { id: idCounter, todo: newTodo }]);
     setNewTodo("");
   };
-   
+
   const deleteAll = () => {
     setTodos([]);
   };
