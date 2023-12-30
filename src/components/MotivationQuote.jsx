@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 const MotivationQuote = () => {
-  const [quote, setQuote] = useState("");
+  const [quote, setQuote] = useState(false);
 
   const newQuote = () => {
     fetch("https://api.quotable.io/random")
@@ -12,11 +12,13 @@ const MotivationQuote = () => {
 
   useEffect(() => {
     newQuote();
+    setQuote(false)
   }, []);
+
 
   return (
     <>
-      <h6>Motivational Quote:<br/> {quote.content}</h6>
+      {quote ? <h6>Motivational Quote:<br /> {quote.content}</h6> : "LOADING"}
     </>
   );
 };
