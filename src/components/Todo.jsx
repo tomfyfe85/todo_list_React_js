@@ -14,9 +14,12 @@ const Todo = ({ id, todo, todos, setTodos }) => {
 
   return (
     <>
-      <div>{todo}</div>
       <div>
-        <MotivationQuote/>
+        Task:
+        <br /> {todo}
+      </div>
+      <div>
+        <MotivationQuote />
       </div>
       <button onClick={() => deleteTodo(id, todos, setTodos)}>Delete</button>
     </>
