@@ -18,7 +18,7 @@ const MotivationQuote = () => {
 
   return (
     <>
-      {quote ? <h6>Motivational Quote:<br /> {quote.content}</h6> : "LOADING"}
+      {quote ? <h6>Motivational Quote:<br /> {quote.content}</h6> : <p>LOADING QUOTE...</p>}
     </>
   );
 };
