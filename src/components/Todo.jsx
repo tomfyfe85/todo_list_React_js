@@ -7,11 +7,11 @@ const Todo = ({ id, todo, todos, setTodos }) => {
     todos.forEach((task) => {
       if (task.id != id) {
         deleted.push(task);
-      }
+      } 
       setTodos(deleted);
     });
   };
-
+// test
   return (
     <>
       <br/>
