@@ -11,7 +11,17 @@ const Todo = ({ id, todo, todos, setTodos }) => {
       setTodos(deleted);
     });
   };
-// test
+  
+  const changeValue = (id, todos, setTodos) => {
+    todos.forEach((todo) => {
+  if (id === todo.id) {
+      todo.complete = !todo.complete
+    }
+    })
+    console.log(todos)
+  }
+  console.log(todos)
+  
   return (
     <>
       <br/>
@@ -19,6 +29,7 @@ const Todo = ({ id, todo, todos, setTodos }) => {
         <br /> {todo}
         <MotivationQuote />
       <button onClick={() => deleteTodo(id, todos, setTodos)}>Delete</button>
+      <button onClick={() => changeValue(id, todos, setTodos)}>Mark Complete</button>
       <hr/>
     </>
   );

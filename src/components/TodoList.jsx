@@ -11,7 +11,7 @@ const TodoList = () => {
       return;
     }
     setIdCounter(idCounter + 1);
-    setTodos([...todos, { id: idCounter, todo: newTodo }]);
+    setTodos([...todos, { id: idCounter, todo: newTodo, complete: false }]);
     setNewTodo("");
   };
 

@@ -7,7 +7,6 @@ const MotivationQuote = () => {
       .then((res) => res.json())
       .then((data) => setQuote(data))
       .catch((error) => console.error("Error fetching data:", error));
-    console.log(quote);
   };
 
   useEffect(() => {
