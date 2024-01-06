@@ -10,8 +10,8 @@ const TodoList = () => {
     if (newTodo === "") {
       return;
     }
-    setIdCounter(idCounter + 1);
     setTodos([...todos, { id: idCounter, todo: newTodo, complete: false }]);
+    setIdCounter(idCounter + 1);
     setNewTodo("");
   };
 
@@ -22,7 +22,7 @@ const TodoList = () => {
   const handleChange = (event) => {
     setNewTodo(event.target.value);
   };
-
+  console.log(todos);
   return (
     <div>
       <h1>Todo List</h1>
