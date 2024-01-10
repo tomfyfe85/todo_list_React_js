@@ -30,14 +30,13 @@ const Todo = ({ id, todo, todos, setTodos, completed}) => {
   return (
     <div style={boxStyles}>
       <br />
-      Task:
-      <br /> {todo}
+      <p id = 'task'>Task:</p>
+      <p id = 'task'>{todo}</p>
       <MotivationQuote />
       <button onClick={() => deleteTodo(id, todos, setTodos)}>Delete</button>
       <button onClick={() => changeValue(id, todos, setTodos)}>
         <b>{completed === true ? 'Mark Incomplete' : 'Mark complete'}</b>
       </button>
-      <hr />
     </div>
   );
 };

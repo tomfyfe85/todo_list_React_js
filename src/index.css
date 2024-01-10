@@ -86,11 +86,15 @@ button:focus-visible {
   color:brown;
 }
 
+
 #complete{
-  color:green
+  color:rgb(5, 61, 3)
 }
 
 #incomplete{
-  color:red
-}
+  color:rgb(129, 3, 3)
+} 
 
+#task{
+  color:rgb(13, 17, 17)
+}
