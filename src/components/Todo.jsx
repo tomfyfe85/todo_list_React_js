@@ -22,9 +22,13 @@ const Todo = ({ id, todo, todos, setTodos, completed}) => {
     setTodos(updatedTodos);
   };
   
+  const boxStyles = {
+    backgroundColor: 'white',
+    border: completed? '2px solid green' : '2px solid red'
+  };
 
   return (
-    <>
+    <div style={boxStyles}>
       <br />
       Task:
       <br /> {todo}
@@ -34,7 +38,7 @@ const Todo = ({ id, todo, todos, setTodos, completed}) => {
         <b>{completed === true ? 'Mark Incomplete' : 'Mark complete'}</b>
       </button>
       <hr />
-    </>
+    </div>
   );
 };
 

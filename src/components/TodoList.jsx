@@ -33,6 +33,8 @@ const TodoList = () => {
     }
   });
 
+
+
   return (
     <div>
       <h1>Todo List</h1>
@@ -55,20 +57,22 @@ const TodoList = () => {
         DELETE ALL
       </button>
 
-      <p>COMPLETE</p>
-      {completedArray.map((todo) => (
-        <div key={todo.id}>
-          <Todo
-            id={todo.id}
-            todo={todo.todo}
-            todos={todos}
-            setTodos={setTodos}
-            completed={todo.complete}
-          />
-        </div>
-      ))}
-
-      <p>INCOMPLETE</p>
+      <div id = "complete_box">
+        <h3 id = 'complete'>COMPLETE</h3>
+        {completedArray.map((todo) => (
+          <div key={todo.id}>
+            <Todo
+              id={todo.id}
+              todo={todo.todo}
+              todos={todos}
+              setTodos={setTodos}
+              completed={todo.complete}
+            />
+          </div>
+        ))}
+      </div>
+      <hr/>
+      <h3 id = 'incomplete'>INCOMPLETE</h3>
       {incompleteArray.map((todo) => (
         <div key={todo.id}>
           <Todo

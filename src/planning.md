@@ -37,10 +37,11 @@ Phase 2
 
 ) todo has a mark complete button - this moves the todo to a 'completed' section (CSS, green for completed and red for not)
 
-- create conditions for incomplete to be false and complete to be true
-- use id in props, if todo is false when mark complete is clicked, make true and same
+-) create conditions for incomplete to be false and complete to be true
+-) use id in props, if todo is false when mark complete is clicked, make true and same
 for mark incomplete 
-- create new arrays for true and false in TodoList, map over each array in jsx
+-) create new arrays for true and false in TodoList, map over each array in jsx
+ewr
 - in addition to each todo being in a complete/incomplete section, add CSS to make a red box appear around each incomplete which turns green when marked complete
 
 ) delete all completed/uncompleted
