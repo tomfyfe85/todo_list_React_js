@@ -22,7 +22,17 @@ const TodoList = () => {
   const handleChange = (event) => {
     setNewTodo(event.target.value);
   };
-  console.log(todos);
+
+  const completedArray = [];
+  const incompleteArray = [];
+  todos.forEach((todo) => {
+    if (todo.complete) {
+      completedArray.push(todo);
+    } else {
+      incompleteArray.push(todo);
+    }
+  });
+
   return (
     <div>
       <h1>Todo List</h1>
@@ -44,7 +54,22 @@ const TodoList = () => {
       <button onClick={deleteAll} id="delete">
         DELETE ALL
       </button>
-      {todos.map((todo) => (
+
+      <p>COMPLETE</p>
+      {completedArray.map((todo) => (
+        <div key={todo.id}>
+          <Todo
+            id={todo.id}
+            todo={todo.todo}
+            todos={todos}
+            setTodos={setTodos}
+            completed={todo.complete}
+          />
+        </div>
+      ))}
+
+      <p>INCOMPLETE</p>
+      {incompleteArray.map((todo) => (
         <div key={todo.id}>
           <Todo
             id={todo.id}

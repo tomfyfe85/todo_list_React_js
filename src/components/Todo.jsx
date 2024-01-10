@@ -1,6 +1,6 @@
 import MotivationQuote from "./MotivationQuote";
 
-const Todo = ({ id, todo, todos, setTodos }) => {
+const Todo = ({ id, todo, todos, setTodos, completed}) => {
   const deleteTodo = (id, todos, setTodos) => {
     // console.log('Delete todo')
     let deleted = [];
@@ -21,6 +21,7 @@ const Todo = ({ id, todo, todos, setTodos }) => {
     });
     setTodos(updatedTodos);
   };
+  
 
   return (
     <>
@@ -30,7 +31,7 @@ const Todo = ({ id, todo, todos, setTodos }) => {
       <MotivationQuote />
       <button onClick={() => deleteTodo(id, todos, setTodos)}>Delete</button>
       <button onClick={() => changeValue(id, todos, setTodos)}>
-        Mark Complete
+        <b>{completed === true ? 'Mark Incomplete' : 'Mark complete'}</b>
       </button>
       <hr />
     </>
