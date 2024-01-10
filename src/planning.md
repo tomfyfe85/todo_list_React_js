@@ -42,7 +42,7 @@ Phase 2
 for mark incomplete 
 -) create new arrays for true and false in TodoList, map over each array in jsx
 ewr
-- in addition to each todo being in a complete/incomplete section, add CSS to make a red box appear around each incomplete which turns green when marked complete
+-) in addition to each todo being in a complete/incomplete section, add CSS to make a red box appear around each incomplete which turns green when marked complete
 
 ) delete all completed/uncompleted
 

@@ -4,7 +4,8 @@ const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
   const [idCounter, setIdCounter] = useState(1);
-
+  // const [completed, setCompleted] = useState([])
+  // const [incompleted, setinCompleted] = useState([])
   const addTodo = (event) => {
     event.preventDefault();
     if (newTodo === "") {
@@ -23,17 +24,22 @@ const TodoList = () => {
     setNewTodo(event.target.value);
   };
 
-  const completedArray = [];
-  const incompleteArray = [];
+  let completedArray = [];
+  let incompleteArray = [];
+
   todos.forEach((todo) => {
     if (todo.complete) {
       completedArray.push(todo);
+      // completed.push(todo);
+      // setCompleted(completed)
     } else {
       incompleteArray.push(todo);
     }
   });
 
-
+  // const clearCompleted = () => {
+  //   setCompleted([])
+  // }
 
   return (
     <div>
@@ -53,14 +59,19 @@ const TodoList = () => {
           SUBMIT
         </button>
       </form>
+      {/* <button onClick={clearCompleted} id="delete">
+        Clear Completed
+      </button>
+      <button onClick={deleteAll} id="delete">
+        Clear Incompleted
+      </button> */}
       <button onClick={deleteAll} id="delete">
         DELETE ALL
       </button>
 
       <div id="complete_box">
-   
-        <h2 id='complete'>COMPLETE</h2>
-        <hr/>
+        <h2 id="complete">COMPLETE</h2>
+        <hr />
         {completedArray.map((todo) => (
           <div key={todo.id}>
             <Todo
@@ -70,14 +81,13 @@ const TodoList = () => {
               setTodos={setTodos}
               completed={todo.complete}
             />
-                      <br />
-
+            <br />
           </div>
         ))}
       </div>
-      <hr/>
-      <h2 id='incomplete'>INCOMPLETE</h2>
-      <hr/>
+      <hr />
+      <h2 id="incomplete">INCOMPLETE</h2>
+      <hr />
       {incompleteArray.map((todo) => (
         <div key={todo.id}>
           <Todo
@@ -86,10 +96,8 @@ const TodoList = () => {
             todos={todos}
             setTodos={setTodos}
           />
-                <br />
-
+          <br />
         </div>
-        
       ))}
     </div>
   );
