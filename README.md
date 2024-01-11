@@ -1,12 +1,12 @@
 This project was built using React, I use Vite to install it.
-Create a new repo for the Todo list
-In the terminal enter:
+Create a new repo for the Todo list.
+
+If you need to install React, then in the terminal enter:
 
 npm create vite@latest
 (You need Node Version 18 or higher) 
 
 Then follow prompts to install React with JavaScript.
-
 For more info, check this URL.
 https://vitejs.dev/guide
 
