@@ -1,8 +1,16 @@
-# React + Vite
+This project was built using React, I use Vite to install it.
+Create a new repo for the Todo list
+In the terminal enter:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+npm create vite@latest
+(You need Node Version 18 or higher) 
 
-Currently, two official plugins are available:
+Then follow prompts to install React with JavaScript.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+For more info, check this URL.
+https://vitejs.dev/guide
+
+Once installed, clone repo this into you your new Todo directory and start making a Todo list.
+
+NOTE: This is V1 of this Todo App, it will be updated in the future.
+
