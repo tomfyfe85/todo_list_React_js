@@ -24,19 +24,20 @@ const TodoList = () => {
     setNewTodo(event.target.value);
   };
 
-  let completedArray = [];
-  let incompleteArray = [];
+  let sorted = [];
 
-  todos.forEach((todo) => {
-    if (todo.complete) {
-      completedArray.push(todo);
-      // completed.push(todo);
-      // setCompleted(completed)
-    } else {
-      incompleteArray.push(todo);
-    }
+  todos.forEach((task, index) => {
+    if (task.complete === false) {
+      sorted.unshift(task);
+    } else if (task.complete === true) {
+      sorted.push(task);
+    } 
+    // if (todos[-1].completed != false) {
+    //   sorted.push(task)
+    // }
   });
 
+  // let incompleteArray = [];
   // const clearCompleted = () => {
   //   setCompleted([])
   // }
@@ -70,9 +71,9 @@ const TodoList = () => {
       </button>
 
       <div id="complete_box">
-        <h2 id="complete">COMPLETE</h2>
+        {/* <h2 id="complete">COMPLETE</h2> */}
         <hr />
-        {completedArray.map((todo) => (
+        {sorted.map((todo) => (
           <div key={todo.id}>
             <Todo
               id={todo.id}
@@ -85,10 +86,10 @@ const TodoList = () => {
           </div>
         ))}
       </div>
-      <hr />
-      <h2 id="incomplete">INCOMPLETE</h2>
-      <hr />
-      {incompleteArray.map((todo) => (
+      {/* <hr /> */}
+      {/* <h2 id="incomplete">INCOMPLETE</h2> */}
+      {/* <hr /> */}
+      {/* {incompleteArray.map((todo) => (
         <div key={todo.id}>
           <Todo
             id={todo.id}
@@ -98,7 +99,7 @@ const TodoList = () => {
           />
           <br />
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };
