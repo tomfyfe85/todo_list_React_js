@@ -26,17 +26,29 @@ const TodoList = () => {
 
   let sorted = [];
 
+
   todos.forEach((task, index) => {
+    console.log(`index - ${index}`);
+    const isTrue = (el) => el.complete === true;
+    const num = sorted.findIndex(isTrue);
+    console.log(`num ${num}`);
+
+
     if (task.complete === false) {
       sorted.unshift(task);
-    } else if (task.complete === true) {
-      sorted.push(task);
-    } 
-    // if (todos[-1].completed != false) {
-    //   sorted.push(task)
-    // }
-  });
+      console.log(`incomp index ${index}`);
+    } else {
+      // TRY TO ADD TASK AT INDEX OF LAST COMPLETED TASK
 
+
+
+      console.log(`complete index ${index}`);
+      sorted.splice(-1, 0, task);
+    }
+      
+  });
+  
+  console.log(sorted);
   // let incompleteArray = [];
   // const clearCompleted = () => {
   //   setCompleted([])
@@ -71,7 +83,6 @@ const TodoList = () => {
       </button>
 
       <div id="complete_box">
-        {/* <h2 id="complete">COMPLETE</h2> */}
         <hr />
         {sorted.map((todo) => (
           <div key={todo.id}>
@@ -86,20 +97,6 @@ const TodoList = () => {
           </div>
         ))}
       </div>
-      {/* <hr /> */}
-      {/* <h2 id="incomplete">INCOMPLETE</h2> */}
-      {/* <hr /> */}
-      {/* {incompleteArray.map((todo) => (
-        <div key={todo.id}>
-          <Todo
-            id={todo.id}
-            todo={todo.todo}
-            todos={todos}
-            setTodos={setTodos}
-          />
-          <br />
-        </div>
-      ))} */}
     </div>
   );
 };
