@@ -19,6 +19,8 @@ const Todo = ({ id, todo, todos, setTodos, completed}) => {
       }
       return todo;
     });
+    console.log('updated todos')
+    console.log(updatedTodos)
     setTodos(updatedTodos);
   };
   
