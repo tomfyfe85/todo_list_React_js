@@ -36,10 +36,10 @@ const TodoList = () => {
       incompleteArray.push(todo);
     }
   });
-
-  // const clearCompleted = () => {
-  //   setCompleted([])
-  // }
+  
+  const clearCompleted = () => {
+    setCompleted([])
+  }
 
   return (
     <div>
