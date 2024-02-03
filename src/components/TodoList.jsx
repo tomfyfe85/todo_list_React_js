@@ -27,48 +27,47 @@ const TodoList = () => {
   let sorted = [];
   console.log('todos')
   console.log(todos)
+
   todos.forEach((task, index) => {
-    console.log(`index  ${index}`);
-    // const isTrue = (el) => el.complete === true;
-    
+    //   console.log(`index  ${index}`);
+
+    const isTrue = (el) => el.complete === true;
+
+    let lastEl = sorted[sorted.length - 1];
+    console.log("lastEl");
+
+    console.log(lastEl?.id);
     // console.log(`numTrue = ${numTrue}`)
-
-    
-
     if (task.complete === false) {
       sorted.unshift(task);
-      console.log('if')
+      console.log("if");
 
-    //   console.log('sorted if')
-    //   console.log(sorted)
-    } else if (sorted[-1].complete === false && task.complete === true) {
+      //   console.log('sorted if')
+      //   console.log(sorted)
+    } else if (lastEl?.complete === false && task.complete === true) {
       // 'sorted[-1].complete needs to change - use this method let lastElement = myArray[myArray.length - 1];'
-    //   console.log('else if')
-      // sorted.push(task)
-      let lastElement = sorted[myArray.length - 1]
-    } 
-    // else {
-  
-  //   // console.log(`complete index ${index}`);
-  
-    //   console.log('sorted before splice')
-  //   console.log(sorted)
-  
-    //   const numTrue = sorted.findIndex(isTrue);
-  //   console.log(`index of first complete ${numTrue}`);
-  
-  //   sorted.splice(numTrue, 0, task)
-  
-    //   console.log('sorted after splice')
-    //   console.log(sorted)
+      console.log("else if");
+      sorted.push(task);
+      // let lastElement = sorted[myArray.length - 1]
+    } else {
+      // console.log(`complete index ${index}`);
 
+        console.log('sorted before splice')
+      console.log(sorted)
 
-    // }
+      const numTrue = sorted.findIndex(isTrue);
+      console.log(`index of first complete ${numTrue}`);
+      console.log("else");
+      sorted.splice(numTrue, 0, task);
+
+        console.log('sorted after splice')
+        console.log(sorted)
+    }
   });
 
-  // if task is false - unshift 
+  // if task is false - unshift
   // else if the last element of the array is false and the task is true - push task
-  // TAKE MORE BREAKS - 
+  // TAKE MORE BREAKS -
 
   //
   // console.log("sorted array");
@@ -77,7 +76,6 @@ const TodoList = () => {
   // const clearCompleted = () => {
   //   setCompleted([])
   // }
-
 
   return (
     <div>
