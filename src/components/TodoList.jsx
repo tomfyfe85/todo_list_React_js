@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Todo from "./Todo";
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -10,7 +10,10 @@ const TodoList = () => {
     if (newTodo === "") {
       return;
     }
-    setTodos([...todos, { id: idCounter, todo: newTodo, complete: false }]);
+    setTodos([
+      ...todos,
+      { id: idCounter, todo: newTodo, complete: false, trueCount: null },
+    ]);
     setIdCounter(idCounter + 1);
     setNewTodo("");
   };
@@ -24,18 +27,18 @@ const TodoList = () => {
     setNewTodo(event.target.value);
   };
 
-  console.log("todos");
-  console.log(todos);
+  // console.log("todos");
+  // console.log(todos);
   let sorted = [];
   // let arrayToLoop = final.length === 0 ? todos : final;
 
   const sorter = () => {
-    console.log("sorter funct");
+    // console.log("sorter funct");
 
     todos.forEach((task, index) => {
-      console.log(`index  ${index}`);
-      console.log("sorted at top of loop");
-      console.log([...sorted]);
+      // console.log(`index  ${index}`);
+      // console.log("sorted at top of loop");
+      // console.log([...sorted]);
       const isTrue = (el) => el.complete === true;
 
       let lastEl = sorted[sorted.length - 1];
@@ -45,43 +48,45 @@ const TodoList = () => {
       // console.log(`numTrue = ${numTrue}`)
       if (task.complete === false) {
         sorted.unshift(task);
-        console.log("if");
+        // console.log("if");
 
-        console.log("sorted if");
-        console.log([...sorted]);
-      }
-
-      else if (lastEl?.complete === false && task.complete === true) {
-        console.log("else if");
+        // console.log("sorted if");
+        // console.log([...sorted]);
+      } else {
         sorted.push(task);
-        console.log([...sorted]);
-
       }
-      else {
-        // console.log(`complete index ${index}`);
-        console.log("else");
 
-        console.log("sorted before splice");
-        console.log([...sorted]);
+      // else if (lastEl?.complete === false && task.complete === true) {
+      //   console.log("else if");
+      //   sorted.push(task);
+      //   console.log([...sorted]);
 
-        const numTrue = sorted.findIndex(isTrue);
-        console.log(numTrue)
-        sorted.splice(numTrue, 0, task);
+      // }
+      // else {
+      //   // console.log(`complete index ${index}`);
+      //   console.log("else");
 
-        console.log(`index of first complete ${numTrue}`);
+      //   console.log("sorted before splice");
+      //   console.log([...sorted]);
 
-        console.log("sorted after splice");
-        console.log([...sorted]);
-      }
+      //   const numTrue = sorted.findIndex(isTrue);
+      //   console.log(numTrue)
+      //   sorted.splice(numTrue, 0, task);
+
+      //   console.log(`index of first complete ${numTrue}`);
+
+      //   console.log("sorted after splice");
+      //   console.log([...sorted]);
+      // }
     });
-    console.log("sorted after loop");
-    console.log(sorted);
+    // console.log("sorted after loop");
+    // console.log(sorted);
     // setFinal(sorted);
-    return [...sorted]
+    return [...sorted];
   };
-  const final = sorter()
+  const final = sorter();
 
-  console.log("final");
+  // console.log("final");
 
   // console.log(final);
 
@@ -151,6 +156,7 @@ const TodoList = () => {
               todos={todos}
               setTodos={setTodos}
               completed={todo.complete}
+              trueCount={null}
             />
             <br />
           </div>
