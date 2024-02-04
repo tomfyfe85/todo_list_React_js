@@ -4,6 +4,8 @@ const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
   const [idCounter, setIdCounter] = useState(1);
+  const [counter, setCounter] = useState(1);
+
   // const [final, setFinal] = useState([]);
   const addTodo = (event) => {
     event.preventDefault();
@@ -157,6 +159,8 @@ const TodoList = () => {
               setTodos={setTodos}
               completed={todo.complete}
               trueCount={null}
+              counter={counter}
+              setCounter={setCounter}
             />
             <br />
           </div>
