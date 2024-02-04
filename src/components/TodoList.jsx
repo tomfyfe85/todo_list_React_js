@@ -29,68 +29,20 @@ const TodoList = () => {
     setNewTodo(event.target.value);
   };
 
-  // console.log("todos");
-  // console.log(todos);
   let sorted = [];
-  // let arrayToLoop = final.length === 0 ? todos : final;
+  let sortFilter = todos
+    .filter((task) => task.trueCount)
+    .sort((a, b) => b.trueCount - a.trueCount);
 
-  const sorter = () => {
-    // console.log("sorter funct");
-
-    todos.forEach((task, index) => {
-      // console.log(`index  ${index}`);
-      // console.log("sorted at top of loop");
-      // console.log([...sorted]);
-      const isTrue = (el) => el.complete === true;
-
-      let lastEl = sorted[sorted.length - 1];
-      // console.log("lastEl");
-      // console.log(lastEl?.complete);
-
-      // console.log(`numTrue = ${numTrue}`)
-      if (task.complete === false) {
-        sorted.unshift(task);
-        // console.log("if");
-
-        // console.log("sorted if");
-        // console.log([...sorted]);
-      } else {
-        sorted.push(task);
-      }
-
-      // else if (lastEl?.complete === false && task.complete === true) {
-      //   console.log("else if");
-      //   sorted.push(task);
-      //   console.log([...sorted]);
-
-      // }
-      // else {
-      //   // console.log(`complete index ${index}`);
-      //   console.log("else");
-
-      //   console.log("sorted before splice");
-      //   console.log([...sorted]);
-
-      //   const numTrue = sorted.findIndex(isTrue);
-      //   console.log(numTrue)
-      //   sorted.splice(numTrue, 0, task);
-
-      //   console.log(`index of first complete ${numTrue}`);
-
-      //   console.log("sorted after splice");
-      //   console.log([...sorted]);
-      // }
-    });
-    // console.log("sorted after loop");
-    // console.log(sorted);
-    // setFinal(sorted);
-    return [...sorted];
-  };
-  const final = sorter();
-
-  // console.log("final");
-
-  // console.log(final);
+  todos.forEach((task) => {
+    if (task.complete === false) {
+      sorted.unshift(task);
+    } else {
+      sortFilter.forEach((done) => {
+        sorted.push(done);
+      });
+    }
+  });
 
   // sorted.sort((a, b) => {
   //   if (!a.complete && b.complete) {
@@ -102,28 +54,11 @@ const TodoList = () => {
   //   }
   // });
 
-  // if task is false - unshift
-  // else if the last element of the array is false and the task is true - push task
   // TAKE MORE BREAKS -
-
-  //
-  // console.log("sorted array");
-  // console.log(sorted);
-  // let incompleteArray = [];
-  // const clearCompleted = () => {
-  //   setCompleted([])
-  // }
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    addTodo(event);
-    sorter(event);
-  };
-
   return (
     <div>
       <h1>Todo List</h1>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={addTodo}>
         <label htmlFor="addTodo">
           Add a task:
           <input
@@ -150,7 +85,7 @@ const TodoList = () => {
 
       <div id="complete_box">
         <hr />
-        {final.map((todo) => (
+        {sorted.map((todo) => (
           <div key={todo.id}>
             <Todo
               id={todo.id}
