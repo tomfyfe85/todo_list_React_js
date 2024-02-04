@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Todo from "./Todo";
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
   const [idCounter, setIdCounter] = useState(1);
-  // const [completed, setCompleted] = useState([])
-  // const [incompleted, setinCompleted] = useState([])
+  // const [final, setFinal] = useState([]);
   const addTodo = (event) => {
     event.preventDefault();
     if (newTodo === "") {
@@ -18,52 +17,83 @@ const TodoList = () => {
 
   const deleteAll = () => {
     setTodos([]);
+    // setFinal([]);
   };
 
   const handleChange = (event) => {
     setNewTodo(event.target.value);
   };
 
+  console.log("todos");
+  console.log(todos);
   let sorted = [];
-  console.log('todos')
-  console.log(todos)
+  // let arrayToLoop = final.length === 0 ? todos : final;
 
-  todos.forEach((task, index) => {
-    //   console.log(`index  ${index}`);
+  const sorter = () => {
+    console.log("sorter funct");
 
-    const isTrue = (el) => el.complete === true;
+    todos.forEach((task, index) => {
+      console.log(`index  ${index}`);
+      console.log("sorted at top of loop");
+      console.log([...sorted]);
+      const isTrue = (el) => el.complete === true;
 
-    let lastEl = sorted[sorted.length - 1];
-    console.log("lastEl");
+      let lastEl = sorted[sorted.length - 1];
+      // console.log("lastEl");
+      // console.log(lastEl?.complete);
 
-    console.log(lastEl?.id);
-    // console.log(`numTrue = ${numTrue}`)
-    if (task.complete === false) {
-      sorted.unshift(task);
-      console.log("if");
+      // console.log(`numTrue = ${numTrue}`)
+      if (task.complete === false) {
+        sorted.unshift(task);
+        console.log("if");
 
-      //   console.log('sorted if')
-      //   console.log(sorted)
-    } else if (lastEl?.complete === false && task.complete === true) {
-      // 'sorted[-1].complete needs to change - use this method let lastElement = myArray[myArray.length - 1];'
-      console.log("else if");
-      sorted.push(task);
-      // let lastElement = sorted[myArray.length - 1]
-    } else {
-      // console.log(`complete index ${index}`);
+        console.log("sorted if");
+        console.log([...sorted]);
+      }
 
-        console.log('sorted before splice')
-      console.log(sorted)
+      else if (lastEl?.complete === false && task.complete === true) {
+        console.log("else if");
+        sorted.push(task);
+        console.log([...sorted]);
 
-      const numTrue = sorted.findIndex(isTrue);
-      console.log(`index of first complete ${numTrue}`);
-      console.log("else");
-      sorted.splice(numTrue, 0, task);
+      }
+      else {
+        // console.log(`complete index ${index}`);
+        console.log("else");
 
-        console.log('sorted after splice')
-        console.log(sorted)
-    }
-  });
+        console.log("sorted before splice");
+        console.log([...sorted]);
+
+        const numTrue = sorted.findIndex(isTrue);
+        console.log(numTrue)
+        sorted.splice(numTrue, 0, task);
+
+        console.log(`index of first complete ${numTrue}`);
+
+        console.log("sorted after splice");
+        console.log([...sorted]);
+      }
+    });
+    console.log("sorted after loop");
+    console.log(sorted);
+    // setFinal(sorted);
+    return [...sorted]
+  };
+  const final = sorter()
+
+  console.log("final");
+
+  // console.log(final);
+
+  // sorted.sort((a, b) => {
+  //   if (!a.complete && b.complete) {
+  //     return -1; // a comes first if it is completed and b is not
+  //   } else if (a.complete && !b.complete) {
+  //     return 1; // b comes first if it is completed and a is not
+  //   } else {
+  //     return 0; // maintain the existing order for other cases
+  //   }
+  // });
 
   // if task is false - unshift
   // else if the last element of the array is false and the task is true - push task
@@ -77,10 +107,16 @@ const TodoList = () => {
   //   setCompleted([])
   // }
 
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    addTodo(event);
+    sorter(event);
+  };
+
   return (
     <div>
       <h1>Todo List</h1>
-      <form onSubmit={addTodo}>
+      <form onSubmit={handleFormSubmit}>
         <label htmlFor="addTodo">
           Add a task:
           <input
@@ -107,7 +143,7 @@ const TodoList = () => {
 
       <div id="complete_box">
         <hr />
-        {sorted.map((todo) => (
+        {final.map((todo) => (
           <div key={todo.id}>
             <Todo
               id={todo.id}
