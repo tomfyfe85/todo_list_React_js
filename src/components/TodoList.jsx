@@ -29,80 +29,155 @@ const TodoList = () => {
     setNewTodo(event.target.value);
   };
 
+  console.log("todos");
+  console.log(todos);
   let sorted = [];
-  let sortFilter = todos
-    .filter((task) => task.trueCount)
-    .sort((a, b) => b.trueCount - a.trueCount);
+  // let arrayToLoop = final.length === 0 ? todos : final;
+  const revTodo = [...todos].reverse()
+  console.log(`rev todos}`)
+  console.log(revTodo)
 
-  todos.forEach((task) => {
-    if (task.complete === false) {
-      sorted.unshift(task);
-    } else {
-      sortFilter.forEach((done) => {
-        sorted.push(done);
-      });
-    }
-  });
+  const sorter = () => {
+    // const sortFilter = todos
+    //   .filter((task) => task.trueCount)
+    //   .sort((a, b) => b.trueCount - a.trueCount);
+    const order = revTodo.sort((a, b) => b.trueCount - a.trueCount);
 
-  // sorted.sort((a, b) => {
-  //   if (!a.complete && b.complete) {
-  //     return -1; // a comes first if it is completed and b is not
-  //   } else if (a.complete && !b.complete) {
-  //     return 1; // b comes first if it is completed and a is not
-  //   } else {
-  //     return 0; // maintain the existing order for other cases
-  //   }
-  // });
+    order.forEach((task, index) => {
+      // console.log(`index  ${index}`);
+      // console.log("sorted at top of loop");
+      // console.log([...sorted]);
+      // const isTrue = (el) => el.complete === true;
 
-  // TAKE MORE BREAKS -
-  return (
-    <div>
-      <h1>Todo List</h1>
-      <form onSubmit={addTodo}>
-        <label htmlFor="addTodo">
-          Add a task:
-          <input
-            id="input"
-            type="text"
-            name="todo"
-            value={newTodo}
-            onChange={handleChange}
-          />
-        </label>
-        <button type="submit" name="submit" id="submit">
-          SUBMIT
-        </button>
-      </form>
-      {/* <button onClick={clearCompleted} id="delete">
+      // let lastEl = sorted[sorted.length - 1];
+      // // console.log("lastEl");
+      // console.log(lastEl?.complete);
+
+      // console.log(`numTrue = ${numTrue}`)
+      if (task.complete === false) {
+        sorted.unshift(task);
+        // console.log("if");
+
+        // console.log("sorted if");
+        // console.log([...sorted]);
+        // } else if (lastEl?.complete === false && task.complete === true) {
+      } else{
+        // console.log("else if");
+        sorted.push(task);
+        // console.log([...sorted]);
+  
+      } 
+      // else {
+      //   // console.log(`complete index ${index}`);
+      //   // console.log("else");
+      //   // console.log("sorted before splice");
+      //   // console.log([...sorted]);
+      //   const numTrue = sorted.findIndex(isTrue);
+      //   // console.log(numTrue)
+      //   sorted.splice(numTrue, 0, task);
+      //   //   console.log(`index of first complete ${numTrue}`);
+      //   //   console.log("sorted after splice");
+      //   //   console.log([...sorted]);
+      //   // }
+      //   // });
+      //   // console.log("sorted after loop");
+      //   // console.log(sorted);
+      //   // setFinal(sorted);
+      // }
+    })
+    return [...sorted];
+  }
+    const final = sorter();
+
+    // console.log("final");
+
+    // console.log(final);
+
+    // sorted.sort((a, b) => {
+    //   if (!a.complete && b.complete) {
+    //     return -1; // a comes first if it is completed and b is not
+    //   } else if (a.complete && !b.complete) {
+    //     return 1; // b comes first if it is completed and a is not
+    //   } else {
+    //     return 0; // maintain the existing order for other cases
+    //   }
+    // });
+
+    // if task is false - unshift
+    // else if the last element of the array is false and the task is true - push task
+    // TAKE MORE BREAKS -
+
+    //
+    // console.log("sorted array");
+    // console.log(sorted);
+    // let incompleteArray = [];
+    // const clearCompleted = () => {
+    //   setCompleted([])
+  // }
+  
+  console.log('sorter tests')
+  
+
+  const order = todos.sort((a, b) => b.trueCount - a.trueCount);
+  console.log([...order])
+  const rev = order.reverse()
+  console.log(revTodo)
+
+  
+    const handleFormSubmit = (event) => {
+      event.preventDefault();
+      addTodo(event);
+      sorter(event);
+    };
+  
+    return (
+      <div>
+        <h1>Todo List</h1>
+        <form onSubmit={handleFormSubmit}>
+          <label htmlFor="addTodo">
+            Add a task:
+            <input
+              id="input"
+              type="text"
+              name="todo"
+              value={newTodo}
+              onChange={handleChange}
+            />
+          </label>
+          <button type="submit" name="submit" id="submit">
+            SUBMIT
+          </button>
+        </form>
+        {/* <button onClick={clearCompleted} id="delete">
         Clear Completed
       </button>
       <button onClick={deleteAll} id="delete">
         Clear Incompleted
       </button> */}
-      <button onClick={deleteAll} id="delete">
-        DELETE ALL
-      </button>
+        <button onClick={deleteAll} id="delete">
+          DELETE ALL
+        </button>
 
-      <div id="complete_box">
-        <hr />
-        {sorted.map((todo) => (
-          <div key={todo.id}>
-            <Todo
-              id={todo.id}
-              todo={todo.todo}
-              todos={todos}
-              setTodos={setTodos}
-              completed={todo.complete}
-              trueCount={null}
-              counter={counter}
-              setCounter={setCounter}
-            />
-            <br />
-          </div>
-        ))}
+        <div id="complete_box">
+          <hr />
+          {final.map((todo) => (
+            <div key={todo.id}>
+              <Todo
+                id={todo.id}
+                todo={todo.todo}
+                todos={todos}
+                setTodos={setTodos}
+                completed={todo.complete}
+                trueCount={null}
+                counter={counter}
+                setCounter={setCounter}
+              />
+              <br />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
 
 export default TodoList;
