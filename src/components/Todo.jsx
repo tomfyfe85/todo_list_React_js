@@ -1,8 +1,17 @@
 import MotivationQuote from "./MotivationQuote";
 import React, { useEffect, useState } from "react";
 
-const Todo = ({ id, todo, todos, setTodos, completed, trueCount, counter, setCounter }) => {
-  console.log(counter)
+const Todo = ({
+  id,
+  todo,
+  todos,
+  setTodos,
+  completed,
+  trueCount,
+  counter,
+  setCounter,
+}) => {
+  console.log(counter);
   const deleteTodo = (id, todos, setTodos) => {
     // console.log('Delete todo')
     let deleted = [];
@@ -29,9 +38,9 @@ const Todo = ({ id, todo, todos, setTodos, completed, trueCount, counter, setCou
 
   const handleChange = () => {
     changeValue(id, todos, setTodos, trueCount);
-    let score = counter + 1
-    console.log(`counter in hanglechange ${score}`)
-   
+    let score = counter + 1;
+    console.log(`counter in hanglechange ${score}`);
+
     setCounter(score);
   };
 
