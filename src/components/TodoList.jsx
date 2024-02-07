@@ -37,9 +37,9 @@ const TodoList = () => {
     }
   });
   
-  const clearCompleted = () => {
-    setCompleted([])
-  }
+  // const clearCompleted = () => {
+  //   setCompleted([])
+  // }
 
   return (
     <div>
