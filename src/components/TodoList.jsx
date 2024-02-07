@@ -54,7 +54,7 @@ const TodoList = () => {
             value={newTodo}
             onChange={handleChange}
           />
-        </label>
+        </label>~
         <button type="submit" name="submit" id="submit">
           SUBMIT
         </button>
