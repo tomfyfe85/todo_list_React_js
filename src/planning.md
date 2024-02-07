@@ -47,3 +47,5 @@ ewr
 ) delete all completed/uncompleted
 
 
+BRANCH - todoDisplayRefactor
+complete mark incomplete functionality
