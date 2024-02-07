@@ -4,8 +4,7 @@ const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
   const [idCounter, setIdCounter] = useState(1);
-  // const [completed, setCompleted] = useState([])
-  // const [incompleted, setinCompleted] = useState([])
+
   const addTodo = (event) => {
     event.preventDefault();
     if (newTodo === "") {
@@ -30,16 +29,12 @@ const TodoList = () => {
   todos.forEach((todo) => {
     if (todo.complete) {
       completedArray.push(todo);
-      // completed.push(todo);
-      // setCompleted(completed)
+
     } else {
       incompleteArray.push(todo);
     }
   });
   
-  // const clearCompleted = () => {
-  //   setCompleted([])
-  // }
 
   return (
     <div>
