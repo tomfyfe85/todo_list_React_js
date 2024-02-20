@@ -66,5 +66,4 @@ const Todo = ({
     </div>
   );
 };
-exit
 export default Todo;
