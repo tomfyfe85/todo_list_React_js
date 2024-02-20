@@ -56,9 +56,13 @@ const Todo = ({
       <p id="task">{todo}</p>
       <MotivationQuote />
       <button onClick={() => deleteTodo(id, todos, setTodos)}>Delete</button>
-      <button onClick={handleChange}>
+      {/* Code below is for V2 mark incomplete functionality */}
+      {/* <button onClick={handleChange}>
         <b>{completed === true ? "Mark Incomplete" : "Mark complete"}</b>
-      </button>
+      </button> */}
+      {completed === !true && (
+        <button onClick={handleChange}>Mark Complete</button>
+      )}
     </div>
   );
 };
