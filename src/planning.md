@@ -47,5 +47,42 @@ ewr
 ) delete all completed/uncompleted
 
 
+<<<<<<< HEAD
 BRANCH - todoDisplayRefactor
 complete mark incomplete functionality
+=======
+DRYing out jsx for complete/incomplete sections
+
+new todos are false
+if a todo gets marked true it needs to appear after the last incomplete todo.
+
+imcomplete should be shifted to the front of the list -
+
+use splice.
+
+rough version:
+each with index
+```JavaScript
+const sorter = (todo) => {
+
+if(todo[-1].completed != false){
+   todos.push(todo)
+}
+
+todo.forEach((task, index) =>{
+  if(task.completed === true){
+    break,
+    todo.splice(index + 1, 0, task)
+  }
+ })
+}
+
+
+```
+
+
+
+
+
+
+>>>>>>> todoDisplayRefactor

@@ -4,13 +4,16 @@ const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
   const [idCounter, setIdCounter] = useState(1);
-
+  const [counter, setCounter] = useState(1);
   const addTodo = (event) => {
     event.preventDefault();
     if (newTodo === "") {
       return;
     }
-    setTodos([...todos, { id: idCounter, todo: newTodo, complete: false }]);
+    setTodos([
+      ...todos,
+      { id: idCounter, todo: newTodo, complete: false, trueCount: null },
+    ]);
     setIdCounter(idCounter + 1);
     setNewTodo("");
   };
@@ -23,18 +26,13 @@ const TodoList = () => {
     setNewTodo(event.target.value);
   };
 
-  let completedArray = [];
-  let incompleteArray = [];
-
-  todos.forEach((todo) => {
-    if (todo.complete) {
-      completedArray.push(todo);
-
-    } else {
-      incompleteArray.push(todo);
-    }
+  //  Make into a component  
+  const order = todos.sort((a, b) => b.trueCount - a.trueCount);
+  console.log(order)
+  let sorted = [];
+  order.forEach((task) => {
+    task.complete === false ? sorted.unshift(task) : sorted.push(task);
   });
-  
 
   return (
     <div>
@@ -54,20 +52,12 @@ const TodoList = () => {
           SUBMIT
         </button>
       </form>
-      {/* <button onClick={clearCompleted} id="delete">
-        Clear Completed
-      </button>
-      <button onClick={deleteAll} id="delete">
-        Clear Incompleted
-      </button> */}
       <button onClick={deleteAll} id="delete">
         DELETE ALL
       </button>
-
       <div id="complete_box">
-        <h2 id="complete">COMPLETE</h2>
         <hr />
-        {completedArray.map((todo) => (
+        {sorted.map((todo) => (
           <div key={todo.id}>
             <Todo
               id={todo.id}
@@ -75,25 +65,14 @@ const TodoList = () => {
               todos={todos}
               setTodos={setTodos}
               completed={todo.complete}
+              trueCount={null}
+              counter={counter}
+              setCounter={setCounter}
             />
             <br />
           </div>
         ))}
       </div>
-      <hr />
-      <h2 id="incomplete">INCOMPLETE</h2>
-      <hr />
-      {incompleteArray.map((todo) => (
-        <div key={todo.id}>
-          <Todo
-            id={todo.id}
-            todo={todo.todo}
-            todos={todos}
-            setTodos={setTodos}
-          />
-          <br />
-        </div>
-      ))}
     </div>
   );
 };
