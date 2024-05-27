@@ -7,7 +7,6 @@ const Todo = ({
   todos,
   setTodos,
   completed,
-  trueCount,
   counter,
   setCounter,
 }) => {
@@ -23,7 +22,7 @@ const Todo = ({
     });
   };
 
-  const changeValue = (id, todos, setTodos, trueCount) => {
+  const changeValue = (id, todos, setTodos) => {
     const updatedTodos = todos.map((todo) => {
       if (id === todo.id) {
         return { ...todo, complete: true, trueCount: counter };
@@ -37,10 +36,8 @@ const Todo = ({
   };
 
   const handleChange = () => {
-    changeValue(id, todos, setTodos, trueCount);
+    changeValue(id, todos, setTodos);
     let score = counter + 1;
-    console.log(`counter in hanglechange ${score}`);
-
     setCounter(score);
   };
 

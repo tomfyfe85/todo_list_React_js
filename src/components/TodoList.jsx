@@ -28,6 +28,8 @@ const TodoList = () => {
 
   //  Make into a component  
   const order = todos.sort((a, b) => b.trueCount - a.trueCount);
+  console.log("order")
+
   console.log(order)
   let sorted = [];
   order.forEach((task) => {
@@ -65,7 +67,6 @@ const TodoList = () => {
               todos={todos}
               setTodos={setTodos}
               completed={todo.complete}
-              trueCount={null}
               counter={counter}
               setCounter={setCounter}
             />
