@@ -28,9 +28,6 @@ const TodoList = () => {
 
   //  Make into a component  
   const order = todos.sort((a, b) => b.trueCount - a.trueCount);
-  console.log("order")
-
-  console.log(order)
   let sorted = [];
   order.forEach((task) => {
     task.complete === false ? sorted.unshift(task) : sorted.push(task);
