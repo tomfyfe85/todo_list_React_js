@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Todo from "./Todo";
+import Order from "./Order";
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
   const [idCounter, setIdCounter] = useState(1);
   const [counter, setCounter] = useState(1);
+  const [orderState, setOrderState] = useState([])
   const addTodo = (event) => {
     event.preventDefault();
     if (newTodo === "") {
@@ -27,11 +29,11 @@ const TodoList = () => {
   };
 
   //  Make into a component  
-  const order = todos.sort((a, b) => b.trueCount - a.trueCount);
-  let sorted = [];
-  order.forEach((task) => {
-    task.complete === false ? sorted.unshift(task) : sorted.push(task);
-  });
+  // const order = todos.sort((a, b) => b.trueCount - a.trueCount);
+  // let sorted = [];
+  // order.forEach((task) => {
+  //   task.complete === false ? sorted.unshift(task) : sorted.push(task);
+  // });
 
   return (
     <div>
@@ -56,7 +58,7 @@ const TodoList = () => {
       </button>
       <div id="complete_box">
         <hr />
-        {sorted.map((todo) => (
+        {orderState.map((todo) => (
           <div key={todo.id}>
             <Todo
               id={todo.id}
@@ -70,6 +72,9 @@ const TodoList = () => {
             <br />
           </div>
         ))}
+        <div>
+          <Order todos={todos} setOrder={setOrderState}/>
+        </div>
       </div>
     </div>
   );
