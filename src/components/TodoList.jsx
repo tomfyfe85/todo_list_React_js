@@ -6,7 +6,7 @@ const TodoList = () => {
   const [newTodo, setNewTodo] = useState("");
   const [idCounter, setIdCounter] = useState(1);
   const [counter, setCounter] = useState(1);
-  const [orderState, setOrderState] = useState([])
+  const [orderState, setOrderState] = useState([]);
   const addTodo = (event) => {
     event.preventDefault();
     if (newTodo === "") {
@@ -27,14 +27,6 @@ const TodoList = () => {
   const handleChange = (event) => {
     setNewTodo(event.target.value);
   };
-
-  //  Make into a component  
-  // const order = todos.sort((a, b) => b.trueCount - a.trueCount);
-  // let sorted = [];
-  // order.forEach((task) => {
-  //   task.complete === false ? sorted.unshift(task) : sorted.push(task);
-  // });
-
   return (
     <div>
       <h1>Todo List</h1>
@@ -48,7 +40,7 @@ const TodoList = () => {
             value={newTodo}
             onChange={handleChange}
           />
-        </label>~
+        </label>
         <button type="submit" name="submit" id="submit">
           SUBMIT
         </button>
@@ -72,10 +64,9 @@ const TodoList = () => {
             <br />
           </div>
         ))}
-        <div>
-          <Order todos={todos} setOrder={setOrderState}/>
-        </div>
       </div>
+
+      <Order todos={todos} setOrder={setOrderState} />
     </div>
   );
 };

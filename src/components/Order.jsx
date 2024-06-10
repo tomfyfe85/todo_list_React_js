@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 
 export default function Order({ todos, setOrder }) {
   const order = todos.sort((a, b) => b.trueCount - a.trueCount);
   let sorted = [];
-  order.forEach((task) => {
+  const newOrder = order.forEach((task) => {
     task.complete === false ? sorted.unshift(task) : sorted.push(task);
   });
-  return <div>Order</div>;
+  useEffect(() => setOrder(sorted), [todos]);
+  return null;
 }
+
+/*Order makes sure that the complete tasks are displayed
+in the correct order when marked complete
+*/

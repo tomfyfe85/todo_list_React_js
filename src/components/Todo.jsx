@@ -42,8 +42,8 @@ const Todo = ({
   };
 
   const boxStyles = {
-    backgroundColor: "white",
-    border: completed ? "2px solid green" : "2px solid red",
+    backgroundColor: "grey",
+    border: completed ? "8px solid green" : "8px solid red",
   };
 
   return (
